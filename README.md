@@ -13,7 +13,9 @@
 
 ## Approach (and any installation instructions)
 
-## Timeline/Deliverables7.Resources
+## Timeline/Deliverables
+
+## Resources
 
 ## How to contribute (if open-source)
 
