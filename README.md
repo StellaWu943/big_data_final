@@ -1,4 +1,5 @@
 # Enhancing Bus Punctuality: A Machine Learning Approach to Binary Classification of Bus Arrival Times
+Group member: Silin Chen, Xinyi Zhang, Stella Wu
 
 ## Overview (Silin)
 Efficient public transportation is crucial for urban mobility, yet maintaining punctuality remains a significant challenge due to variable urban traffic
