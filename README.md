@@ -34,13 +34,20 @@ Link to dataset: https://www.kaggle.com/datasets/stoney71/new-york-city-transpor
 
 ### First model: Decision Tree (Baseline model) (Silin)
 
+
 #### Feature Engineering (Stella)
 
 #### Hyperparameter tuning (Xinyi)
 
 ### Second Model: Random Forest (Xinyi)
 
-### Third Model: xxx (Silin)
+### Third Model: Logistic Regression (Silin)
+
+The logistic regression model achieved perfect classification performance, with an accuracy of 100% on both the training and test datasets. This result indicates that the model was able to completely distinguish between the two classes (LateIndex = 0 and 1) without any misclassifications. While this level of accuracy is impressive, it may also suggest potential data leakage or overly simplistic data patterns that the model easily captured. Further evaluation with additional metrics (e.g., ROC-AUC, precision, recall) and validation on unseen data is recommended to confirm the model’s generalizability.
+
+<p align="center" width="100%">
+<img src="images\llm_hall.png" alt="" style="width: 60%; min-width: 300px; display: block; margin: auto;">
+</p>
 
 ### Forth Model: Gradient Bosted Decision Trees (Stella)
 
