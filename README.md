@@ -16,6 +16,17 @@ comprehensive real-time data captured every ten minutes, detailing bus locations
 Link to dataset: https://www.kaggle.com/datasets/stoney71/new-york-city-transport-statistics?select=mta_1706.csvjn
 
 ## Repository structure (Silin)
+Milestone4.ipynb
+Contains the full workflow covering Milestones 1–4, including EDA, feature engineering, model training, evaluation and etc.
+
+Milestone3.py
+A standalone Python script that implements the feature engineering and hyperparameter tuning steps required for Milestone 3.
+
+images/
+A folder containing visuals (e.g., charts, pipeline diagrams) that are referenced in the README for explanation and clarity.
+
+README.md
+Provides a comprehensive summary of the project, including the problem statement, dataset, approach, results, and resources.
 
 ## Approach (and any installation instructions) (Xinyi)
 This project was developed entirely on Google Cloud Platform (GCP) using Dataproc clusters and JupyterLab for scalable, distributed data processing and machine learning. Given the volume and velocity of real-time bus data (over 5GB), GCP provided the computational resources and flexibility needed to efficiently run PySpark workflows and tune models at scale.
