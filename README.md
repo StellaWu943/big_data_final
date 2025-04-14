@@ -35,11 +35,11 @@ Run the notebooks sequentially from milestone 2 to milestone 4, using PySpark to
 All necessary dependencies (e.g., pyspark, numpy, matplotlib) come pre-installed with Dataproc. No additional packages were required outside of the standard Spark MLlib ecosystem. Our GCP-based workflow ensured scalability, reproducibility, and seamless resource management across all phases of the project.
 
 ## Timeline/Deliverables (Stella)
-- Milestone0 ():
-- Milestone1 ():
-- Milestone2 ():
-- Milestone3 ():
-- Milestone4 ():
+- Milestone0 (3/3): Project proposal
+- Milestone1 (3/17): Data dictionary, project notebook, credit assignment plan
+- Milestone2 (3/31): Project notebook, a 3-minute video
+- Milestone3 (4/7): Jupyter notebook and all necessary Python scripts needed, word/text file summarizing key findings
+- Milestone4 (4/13): All Python scripts developed, a final project report, a zip file containing all of the notebooks, scripts, and clear instructions
 
 ## Resources (Silin)
 
@@ -136,8 +136,14 @@ The logistic regression model achieved perfect classification performance, with 
 </p>
 
 ### Forth Model: Gradient Bosted Decision Trees (Stella)
+To predict whether a bus will be late based on various trip and vehicle-related features, we also applied a Gradient Boosted Decision Tree (GBDT) model using PySpark's MLlib. GBDT is an ensemble learning technique that builds additive models in a forward stage-wise fashion, using decision trees as weak learners. We compared two approaches:
 
+1. Baseline GBDT with a fixed number of trees (no early stopping),
+
+2. GBDT with Manual Early Stopping, where the optimal number of trees was selected based on validation performance.
 ### Performance comparison (Stella)
+
+
 
 
 
