@@ -16,17 +16,15 @@ comprehensive real-time data captured every ten minutes, detailing bus locations
 Link to dataset: https://www.kaggle.com/datasets/stoney71/new-york-city-transport-statistics?select=mta_1706.csvjn
 
 ## Repository structure (Silin)
-Milestone4.ipynb
-Contains the full workflow covering Milestones 1–4, including EDA, feature engineering, model training, evaluation and etc.
+- **Milestone4.ipynb:** Contains the full workflow covering Milestones 1–4, including EDA, feature engineering, model training, fine-tuning, evaluation and etc.
 
-Milestone3.py
-A standalone Python script that implements the feature engineering and hyperparameter tuning steps required for Milestone 3.
+- **Milestone3_tuning_job.py:** A standalone Python script that implements the feature engineering and hyperparameter tuning steps required for Milestone 3. It is designed to be run as a standalone .py job on a cloud service provider.
 
-images/
-A folder containing visuals (e.g., charts, pipeline diagrams) that are referenced in the README for explanation and clarity.
+- **README.md:** Provides a comprehensive summary of the project, including the problem statement, dataset, approach, results, and resources.
 
-README.md
-Provides a comprehensive summary of the project, including the problem statement, dataset, approach, results, and resources.
+- **GCP Cluster Setup Instructions:** This document provides step-by-step instructions for launching a Dataproc cluster on Google Cloud Platform (GCP), configuring the environment, and running the final notebook in JupyterLab.
+
+- **images/ :** A folder containing visuals (e.g., charts, pipeline diagrams) that are referenced in the README for explanation and clarity.
 
 ## Approach (and any installation instructions) (Xinyi)
 This project was developed entirely on Google Cloud Platform (GCP) using Dataproc clusters and JupyterLab for scalable, distributed data processing and machine learning. Given the volume and velocity of real-time bus data (over 5GB), GCP provided the computational resources and flexibility needed to efficiently run PySpark workflows and tune models at scale.
