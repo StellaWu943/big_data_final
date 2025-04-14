@@ -91,8 +91,36 @@ These results indicate that the model perfectly classified the outcome variable 
 
 To ensure that the model is truly robust and generalizable, additional evaluation is recommended. This includes using cross-validation to assess performance consistency across different data splits and inspecting feature importance to identify and remove any redundant or overly influential features. It is also advisable to compare the Decision Tree model against more regularized or ensemble-based alternatives, such as Random Forests or Gradient-Boosted Trees, which are generally more resistant to overfitting and better suited for capturing complex patterns in the data.
 
-
 #### Feature Engineering (Stella)
+####### 1) Add new feature: Adherence
+
+Add a column calculating discrepancies between scheduled and expected arrival times might directly indicate potential delays.
+
+Model Evaluation Results:
+--------------------------------------------------------------------------------
+A single decision tree accuracy on training data: 100.00%
+A single decision tree accuracy on test data: 100.00%
+--------------------------------------------------------------------------------
+
+####### 2) Update feature: Feature Interaction and Polynomial Features
+
+Creating interactions between features can capture non-linear relationships that are not explored by individual features alone. This can be useful in understanding how combined factors affect bus punctuality.
+
+Model Evaluation Results:
+--------------------------------------------------------------------------------
+A single decision tree accuracy on training data: 100.00%
+A single decision tree accuracy on test data: 100.00%
+--------------------------------------------------------------------------------
+
+####### 3) Update feature: Binning and Categorization of Continuous Variables
+
+This method involves converting continuous variables into categorical ones through a process known as binning or discretization. By categorizing these data, we can potentially uncover patterns and relationships that are more directly interpretable and relevant for predictive modeling.
+
+Model Evaluation Results
+--------------------------------------------------------------------------------
+A single decision tree accuracy on training data: 62.77%
+A single decision tree accuracy on test data: 61.86%
+--------------------------------------------------------------------------------
 
 #### Hyperparameter tuning (Xinyi)
 Hyperparameter tuning was conducted on a Decision Tree Classifier to assess the impact of model configuration on predictive performance. The goal was to identify the most effective combination of `maxDepth` and `maxBins`—two of the most influential parameters for tree-based models.
@@ -141,6 +169,25 @@ To predict whether a bus will be late based on various trip and vehicle-related 
 1. Baseline GBDT with a fixed number of trees (no early stopping),
 
 2. GBDT with Manual Early Stopping, where the optimal number of trees was selected based on validation performance.
+
+<p align="center" width="100%">
+<img src="images\gbdt-noearly.png" alt="" style="width: 60%; min-width: 300px; display: block; margin: auto;">
+</p>
+
+<p align="center" width="100%">
+<img src="images\gbdt-early.png" alt="" style="width: 60%; min-width: 300px; display: block; margin: auto;">
+</p>
+
+Early stopping was applied by evaluating model performance across increasing maxIter values and selecting the iteration with the highest validation accuracy. In this case, validation accuracy plateaued around maxIter = 50, indicating that:
+
+- The model reached its optimal complexity without overfitting.
+
+- Additional trees beyond 50 did not improve generalization.
+
+- Both models (baseline and early-stopped) ended up choosing the same configuration, which provides confidence in the selected hyperparameters.
+
+While early stopping didn’t lead to a performance gain, it confirmed that 50 iterations were sufficient for capturing relevant patterns in the data. This avoids unnecessary computation and overfitting in future retraining scenarios.
+
 ### Performance comparison (Stella)
 
 
