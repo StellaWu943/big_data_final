@@ -92,35 +92,35 @@ These results indicate that the model perfectly classified the outcome variable 
 To ensure that the model is truly robust and generalizable, additional evaluation is recommended. This includes using cross-validation to assess performance consistency across different data splits and inspecting feature importance to identify and remove any redundant or overly influential features. It is also advisable to compare the Decision Tree model against more regularized or ensemble-based alternatives, such as Random Forests or Gradient-Boosted Trees, which are generally more resistant to overfitting and better suited for capturing complex patterns in the data.
 
 #### Feature Engineering (Stella)
-####### 1) Add new feature: Adherence
+##### 1) Add new feature: Adherence
 
 Add a column calculating discrepancies between scheduled and expected arrival times might directly indicate potential delays.
 
 Model Evaluation Results:
---------------------------------------------------------------------------------
 A single decision tree accuracy on training data: 100.00%
-A single decision tree accuracy on test data: 100.00%
---------------------------------------------------------------------------------
 
-####### 2) Update feature: Feature Interaction and Polynomial Features
+A single decision tree accuracy on test data: 100.00%
+
+##### 2) Update feature: Feature Interaction and Polynomial Features
 
 Creating interactions between features can capture non-linear relationships that are not explored by individual features alone. This can be useful in understanding how combined factors affect bus punctuality.
 
 Model Evaluation Results:
---------------------------------------------------------------------------------
-A single decision tree accuracy on training data: 100.00%
-A single decision tree accuracy on test data: 100.00%
---------------------------------------------------------------------------------
 
-####### 3) Update feature: Binning and Categorization of Continuous Variables
+A single decision tree accuracy on training data: 100.00%
+
+A single decision tree accuracy on test data: 100.00%
+
+
+##### 3) Update feature: Binning and Categorization of Continuous Variables
 
 This method involves converting continuous variables into categorical ones through a process known as binning or discretization. By categorizing these data, we can potentially uncover patterns and relationships that are more directly interpretable and relevant for predictive modeling.
 
-Model Evaluation Results
---------------------------------------------------------------------------------
+Model Evaluation Results:
+
 A single decision tree accuracy on training data: 62.77%
+
 A single decision tree accuracy on test data: 61.86%
---------------------------------------------------------------------------------
 
 #### Hyperparameter tuning (Xinyi)
 Hyperparameter tuning was conducted on a Decision Tree Classifier to assess the impact of model configuration on predictive performance. The goal was to identify the most effective combination of `maxDepth` and `maxBins`—two of the most influential parameters for tree-based models.
@@ -189,6 +189,16 @@ Early stopping was applied by evaluating model performance across increasing max
 While early stopping didn’t lead to a performance gain, it confirmed that 50 iterations were sufficient for capturing relevant patterns in the data. This avoids unnecessary computation and overfitting in future retraining scenarios.
 
 ### Performance comparison (Stella)
+Across all models evaluated in this milestone—Decision Tree, Random Forest, Logistic Regression, and Gradient Boosted Decision Trees (GBDT)—we observed unexpectedly high performance on both training and test sets. Specifically, the Decision Tree, Random Forest, and Logistic Regression models all achieved 100% accuracy, suggesting either a very easily separable dataset or the presence of potential data leakage or overly informative features. Notably, after applying more interpretable feature engineering techniques such as binning, the accuracy dropped significantly (~62%), hinting that prior models may have relied on features that revealed the label. The GBDT model, both with and without early stopping, showed robust and consistent performance, validating the benefit of ensemble learning and iterative optimization. The results suggest that while multiple models perform well, more robust evaluation methods (e.g., cross-validation, temporal holdout, and leakage checks) are essential to confirm true model generalizability.
+
+| Model                      | Training Accuracy | Test Accuracy | Notes                                                                 |
+|---------------------------|-------------------|---------------|-----------------------------------------------------------------------|
+| Decision Tree (baseline)  | 100.00%           | 100.00%       | Possible data leakage; perfect results are suspicious                |
+| Decision Tree (binned)    | 62.77%            | 61.86%        | More realistic; shows effect of interpretable feature engineering     |
+| Random Forest             | 100.00%           | 100.00%       | Ensemble approach; likely benefiting from same leakage issue          |
+| Logistic Regression       | 100.00%           | 100.00%       | High separability or redundancy in data                               |
+| GBDT (no early stopping)  | 73.21%            | 70.12%        | More balanced and interpretable performance                           |
+| GBDT (early stopping)     | 73.21%            | 70.12%        | Validates same configuration; avoids overfitting with fewer trees     |
 
 
 
